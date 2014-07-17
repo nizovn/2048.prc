@@ -1,0 +1,59 @@
+#include "2048Rsc.h"
+
+ALERT ID GameWonAlert
+CONFIRMATION
+DEFAULTBUTTON 0
+BEGIN
+    TITLE "2048"
+    MESSAGE "CONGRATULATIONS - YOU WON!"
+    BUTTONS "Keep going" "Try again"
+END
+
+ALERT ID NewGameAlert
+CONFIRMATION
+DEFAULTBUTTON 1
+BEGIN
+    TITLE "Game over!"
+    MESSAGE "Start a new game?"
+    BUTTONS "Yes" "No"
+END
+
+ALERT ID AboutAlert
+INFORMATION
+BEGIN
+    TITLE "About"
+    MESSAGE 	"Created by Nikolay Nizov, 2014.\n"\
+    		"Source code:\n"\
+    		"https://github.com/nizovn/2048.prc"
+    BUTTONS "OK"
+END
+
+ALERT ID BestScoreAlert
+INFORMATION
+BEGIN
+    TITLE "Best Score"
+    MESSAGE 	"Your best score is:\n"\
+    		"^1"
+    BUTTONS "OK"
+END
+
+ALERT ID RomIncompatibleAlert
+ERROR
+BEGIN
+    TITLE "System Incompatible"
+    MESSAGE "System Version 2.0 or greater is required to run this application."
+    BUTTONS "OK"
+END
+
+MENU ID MainFormMenuBar
+BEGIN
+    PULLDOWN "Game"
+    BEGIN
+        MENUITEM "Best Score" ID MainOptionsBestScore "S"
+        MENUITEM "Instructions" ID MainOptionsInstructions "I"
+        MENUITEM SEPARATOR 
+        MENUITEM "About Puzzle" ID MainOptionsAboutCmd
+    END
+END
+
+STRING ID InstructionsStr "2048 Insturctions\n\n2048 is played on a simple 4×4 grid, with numbered tiles that slide when a player moves them using hard buttons or stylus. Every turn, a new tile will randomly appear in an empty spot on the board with a value of either 2 or 4. Tiles slide as far as possible in the chosen direction until they are stopped by either another tile or the edge of the grid. If two tiles of the same number collide while moving, they will merge into a tile with the total value of the two tiles that collided. The resulting tile cannot merge with another tile again in the same move.\n\nThe user's score starts at zero, and is incremented whenever two tiles combine, by the value of the new tile.\n\nThe game is won when a tile with a value of 2048 appears on the board, hence the name of the game. After reaching the target score, players can continue in a sandbox mode that continues beyond 2048. When the player has no legal moves (there are no empty spaces and no adjacent tiles with the same value), the game ends.\n\nSource:\nhttp://en.wikipedia.org/wiki/2048_(video_game)"

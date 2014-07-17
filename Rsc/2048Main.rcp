@@ -1,0 +1,11 @@
+#include "2048Rsc.h"
+
+FORM ID MainForm AT (0 0 160 160)
+USABLE
+NOSAVEBEHIND
+MENUID MainFormMenuBar
+BEGIN
+    TITLE "2048"
+    BUTTON "New Game" ID MainFormNewGameButton AT (109 1 50 10) USABLE LEFTANCHOR FRAME
+END
+
